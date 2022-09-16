@@ -42,6 +42,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public GameObject Mouse;
+        public GameObject CPU;
+        public GameObject Teclado;
+        public GameObject Monitor;
+        public GameObject[] componentes;
+        public int contador = 0;
 
         // Use this for initialization
         private void Start()
@@ -265,5 +271,34 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //detectar cuando el gameobject tocado cambia (a otro o a null)
 
         }
+        private void OnTriggerEnter(Collider Other)
+        {
+            if (Other.gameObject.tag == "Mouse")
+            {
+                componentes[0] = Other.gameObject;
+                Mouse.SetActive(false);
+                contador++;
+            }
+            if (Other.gameObject.tag == "CPU")
+            {
+                componentes[1] = Other.gameObject;
+                CPU.SetActive(false);
+                contador++;
+            }
+            if (Other.gameObject.tag == "Teclado")
+            {
+                componentes[2] = Other.gameObject;
+                Teclado.SetActive(false);
+                contador++;
+            }
+            if (Other.gameObject.tag == "Monitor")
+            {
+                componentes[3] = Other.gameObject;
+                Monitor.SetActive(false);
+                contador++;
+            }
+        }
     }
+
+    
 }

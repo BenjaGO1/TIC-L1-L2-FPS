@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mesa : MonoBehaviour
+public class NPCBehaviour : MonoBehaviour
 {
-    public bool destructible;
+    public NPCData Data;
+    
 }
